@@ -21,7 +21,6 @@ export class AddEditSemesterComponent implements OnInit {
     private userService : UserService, private semesterService : SemsterService, @Inject(MAT_DIALOG_DATA) private data : Semester) {}
 
   ngOnInit(): void {
-    console.log(this.month);
     this.semester = this.data;
     
     if (this.semester == null) {
