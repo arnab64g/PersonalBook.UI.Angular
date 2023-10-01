@@ -1,0 +1,8 @@
+footer{
+    margin-top: 25px;
+}
+@media print{
+    footer{
+        visibility: hidden;
+    }
+}

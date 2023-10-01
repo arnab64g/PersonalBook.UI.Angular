@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center">
+     <div class="row mb-3">
+          <div class="g-3">
+               <button mat-raised-button (click)="addSemester()" color="primary" ><mat-icon>add</mat-icon> Add Semester</button>
+          </div>
+          <div class="g-3">
+               <table >
+                    <thead >
+                         <th>Semester Name</th>
+                         <th> Month Started </th>
+                         <th> Year </th>
+                         <th></th>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let sem of semesters">
+                              <td>{{sem.semesterName}}</td>
+                              <td> {{month[sem.monthBng - 1].name}} </td>
+                              <td> {{sem.year}} </td>
+                              <td>
+                                   <button mat-icon-button (click)="editSemester(sem.id)" > <mat-icon color="primary">edit</mat-icon> </button>
+                                   <button mat-icon-button (click)="deleteSemester(sem.id)" > <mat-icon color="warn"> delete </mat-icon> </button>
+                              </td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     </div>
+</div>

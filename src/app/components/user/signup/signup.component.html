@@ -1,0 +1,81 @@
+<head>
+  <title>PersonalBook - sign up</title>
+</head>
+  <body>
+    <div class="form-container d-flex justify-content-center">
+    </div>
+   <div class="d-flex justify-content-center ">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" >
+        <table>
+          <tr>
+            <td colspan="2">
+              <h2>Sign Up</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field  appearance = "outline">
+                <input matInput    formControlName="firstName">
+                <mat-label>First Name</mat-label>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance = "outline">
+                <input matInput  formControlName="lastName" >
+                <mat-label > Last Name</mat-label>  
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field appearance = "outline">
+                <input matInput  type="email" placeholder="" formControlName="email">
+                <mat-label>Email</mat-label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field appearance = "outline">
+                <input matInput  type="text" placeholder="" formControlName="username">
+                <mat-label>Username</mat-label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field appearance = "outline">
+                <input matInput  placeholder="" formControlName="phone">
+                <mat-label>Phone</mat-label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field appearance = "outline">
+                <textarea matInput  formControlName="address" ></textarea>
+                <mat-label>Address</mat-label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <mat-form-field appearance = "outline">
+                <input matInput type="password" placeholder="" formControlName="password">
+                <mat-label>New Password</mat-label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button mat-raised-button style="width: 100%;" color="primary" type="submit" >Register</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p>Already have an account. <a href="login">Sign In</a></p>
+    </div>
+  </body>
+

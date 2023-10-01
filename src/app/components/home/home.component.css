@@ -1,0 +1,14 @@
+mat-card{
+    align-items: center;
+    vertical-align: middle;
+    height: 100px;
+    width: 100px;
+}
+
+mat-card-content{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}

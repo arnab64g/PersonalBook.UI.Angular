@@ -1,0 +1,31 @@
+<mat-dialog-content>
+     <div style="min-width: 500px;">
+          <form [formGroup]="courseForm" (ngSubmit)="addEdit()">
+               <div class="row">
+                    <mat-form-field appearance="outline">
+                         <input matInput formControlName="title">
+                         <mat-label> Course Title </mat-label>
+                    </mat-form-field>
+               </div>
+               <div class="row">
+                    <mat-form-field appearance="outline" class="col">
+                         <input matInput formControlName="code">
+                         <mat-label> Course Code </mat-label>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline" class="col">
+                         <input matInput type="number" formControlName="credit">
+                         <mat-label> Credit Hour </mat-label>
+                    </mat-form-field>
+               </div>
+               <div class="row">
+                    <div class="col">
+                         <button mat-raised-button type="button" color="secondary" (click)="cancel()"> <mat-icon>cancel</mat-icon> Cancel </button>
+                    </div>
+                    <div class="col">
+                         <button mat-raised-button type="submit" color="primary"> <mat-icon>save</mat-icon> Save </button>
+                    </div>
+               </div>
+          </form>
+     </div>
+</mat-dialog-content>

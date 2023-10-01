@@ -1,0 +1,21 @@
+<mat-dialog-content>
+     <form [formGroup]="resultFrom">
+          <div class="form-floating mb-3">
+               <ng-select appearance="standard"  [items]="courses" bindLabel="name" bindValue="id" placeholder="Select Course" formControlName="course"></ng-select>
+          </div>
+          <div class="form-floating mb-3">
+               <ng-select appearance="standard"  [items]="semesters" bindLabel="name" bindValue="id" placeholder="Select Semester" formControlName="semester"></ng-select>
+          </div>
+          <div class="form-floating mb-3">
+               <ng-select appearance="standard" [items]="grades" bindLabel="name" bindValue="id" placeholder="Select Grade" formControlName="grade"></ng-select>
+          </div>
+          <div class = "row">
+               <div class="col">
+                    <button mat-raised-button color="secondary" (click)="cancel()"><mat-icon>cancel</mat-icon> Cancel</button>
+               </div>
+               <div class="col">
+                    <button mat-raised-button color="primary" (click)="save()"><mat-icon>save</mat-icon> Save</button>
+               </div>
+          </div> 
+     </form>
+</mat-dialog-content>

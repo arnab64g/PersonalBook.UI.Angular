@@ -1,0 +1,30 @@
+
+table, th, td {
+     border: 1px solid;
+     text-align: center;     
+     vertical-align: middle;
+}
+
+table{
+     width: 500px;
+}
+
+th{
+     height: 48px;
+     background-color: rgb(233, 236, 241);
+}
+
+.hold{
+     margin-top: 25px;
+}
+
+.top-act{
+     vertical-align: middle;
+}
+
+.top-act button{
+     height: 55px;
+}
+button{
+     height: 100%;
+}

@@ -1,0 +1,8 @@
+@media print{
+    mat-tab-header {
+        display: none;
+      }   
+      .group{
+        display: none;
+      }
+}

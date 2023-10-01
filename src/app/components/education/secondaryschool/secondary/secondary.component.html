@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center row" style="width: 100%; margin-bottom: 100px;">
+     <div class="g-3 row action" >
+          <mat-form-field appearance="outline" class="col action">
+               <mat-select placeholder="Select" [value]="level" (valueChange)="levelChanged($event)">
+                    <mat-option [value]="10">SSC</mat-option>
+                    <mat-option [value]="12">HSC</mat-option>
+               </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addResult()" class="col action"> <mat-icon>add</mat-icon> Add Result </button>
+     </div>
+     <br><br>
+     <div class="g-3 row d-flex justify-content-center" >
+          <div class="g-3  d-flex justify-content-center" > <h2><b>GPA With Optional: {{gpa}}</b></h2>  </div>
+          <table>
+               <thead>
+                    <th> Sl. </th>
+                    <th> Subject </th>
+                    <th> Grade </th>
+                    <th> Points </th>
+               </thead>
+               <tbody>
+                    <tr *ngFor="let r of resutlsT">
+                         <td> {{r.sl}} </td>
+                         <td *ngIf="r.isOptional">{{r.subject}} (Optional) </td>
+                         <td *ngIf="!r.isOptional">{{r.subject}} </td>
+                         <td> {{r.gradeName}} </td>
+                         <td  *ngIf="!r.isOptional"> {{r.points}} </td>
+                         <td  *ngIf="r.isOptional"> {{r.points}} ({{r.points - 2}}) </td>
+                         <td>
+                              <button mat-icon-button (click)="edit(r.id)"><mat-icon color="primary">edit</mat-icon></button>
+                              <button mat-icon-button (click)="delete(r.id)"><mat-icon color="warn">delete</mat-icon> </button>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
+</div>

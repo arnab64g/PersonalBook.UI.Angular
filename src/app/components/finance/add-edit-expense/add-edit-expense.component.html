@@ -1,0 +1,36 @@
+<mat-dialog-content>
+    <h1>Expense</h1>
+    <form [formGroup]="expenseForm" (ngSubmit)="addEditExpense()">
+        <div>
+            <ng-select appearance="outline" placeholder="Category" [multiple]="false" formControlName="category" >
+                <ng-option *ngFor="let c of categories" [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+            </ng-select>
+        </div>
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input placeholder="MM/DD/YY" matInput [matDatepicker]="fromDate" formControlName="date">
+                <mat-datepicker-toggle matIconSuffix [for]="fromDate" ></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col">
+                <mat-label> Amount </mat-label>
+                <input type="number" matInput formControlName="amount">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label> Description </mat-label>
+                <textarea matInput type="text" formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row mb-3">
+            <div class="col ">
+                <button class="act" mat-raised-button type="button" color="secondary" (click)="close()"><mat-icon>cancel</mat-icon> cancel </button>
+            </div>
+            <div class="col">
+                <button class="act" mat-raised-button type="submit" color="primary"> <mat-icon>save</mat-icon> Save </button>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>

@@ -1,0 +1,16 @@
+<mat-dialog-content>
+     <div>
+          <h1> Are you sure you want to delete this Course? </h1>
+          <h3> {{course.courseCode}} ({{course.creditPoint}} Credit) </h3>
+          <h4> {{course.courseTitle}} </h4>
+     </div>
+     <div class="row">
+          <div class="col">
+               <button mat-raised-button (click)="cancel()" color="secondary"> <mat-icon>cancel</mat-icon> Cancel </button>
+          </div>
+          <div class="col">
+               <button mat-raised-button (click)="delete()" color="warn"> <mat-icon>delete</mat-icon> Delete </button>
+          </div>
+     </div>
+     
+</mat-dialog-content>

@@ -1,0 +1,31 @@
+<mat-dialog-content>
+     <h1>Add {{title}} Result</h1>
+     <form (ngSubmit)="addEditResult()" [formGroup]="resultForm">
+          <div class="row">
+               <mat-form-field appearance="outline" class="col">
+                    <input type="number" matInput formControlName="sl">
+                    <mat-label>Sl.</mat-label>
+               </mat-form-field>
+               <mat-form-field appearance="outline" class="col">
+                    <input matInput formControlName="subject">
+                    <mat-label>Subject</mat-label>
+               </mat-form-field>
+          </div>
+          <div class="row">
+               <mat-form-field appearance="outline" class="col">
+                    <mat-select placeholder="Grade" formControlName="grade">
+                         <mat-option *ngFor="let g of grades" [value]="g.id"> {{g.gradeName}}</mat-option>
+                    </mat-select>
+               </mat-form-field>
+               <mat-checkbox formControlName="isOptional" class="col">Optional</mat-checkbox>
+          </div>
+          <div class="row mb-3">
+               <div class="col">
+                    <button color="secondary" type="button" mat-raised-button (click)="cancel()"> <mat-icon>cancel</mat-icon> Cancel</button>
+               </div>
+               <div class="col">
+                    <button color="primary" type="submit" mat-raised-button> <mat-icon>save</mat-icon> Save </button>
+               </div>
+          </div>
+     </form>
+</mat-dialog-content>

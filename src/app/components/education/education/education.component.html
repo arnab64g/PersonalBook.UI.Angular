@@ -1,0 +1,21 @@
+<mat-tab-group  backgroundColor="primary" color="primary" mat-stretch-tabs="false" mat-align-tabs="start">
+     <mat-tab  label="Secondary">
+          <app-secondary></app-secondary>
+     </mat-tab>
+     <mat-tab  label="Graduation">
+          <mat-tab-group  backgroundColor="primary" color="primary"  mat-stretch-tabs="false" mat-align-tabs="start">
+               <mat-tab label="Result"> 
+                    <app-result></app-result>
+               </mat-tab>    
+               <mat-tab class="group" label="Course">
+                    <app-course></app-course>
+               </mat-tab>
+               <mat-tab class="group" label="Semester">
+                    <app-semester></app-semester>
+               </mat-tab>
+          </mat-tab-group>
+     </mat-tab>
+     <mat-tab label="Grade">
+          <app-grade-list></app-grade-list>
+     </mat-tab> 
+</mat-tab-group>

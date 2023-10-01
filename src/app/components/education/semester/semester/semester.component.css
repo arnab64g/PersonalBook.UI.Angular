@@ -1,0 +1,19 @@
+body{
+     width: 100%;
+}
+
+table, th, td {
+     border: 1px solid;
+     text-align: center;     
+     vertical-align: middle;
+}
+
+table{
+     width: 100%;
+}
+
+
+th{
+     height: 48px;
+     background-color: rgb(233, 236, 241);
+}

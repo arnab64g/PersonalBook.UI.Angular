@@ -1,0 +1,87 @@
+table{
+     width: 100%;
+}
+table, th, td {
+     border: 1px solid;
+     text-align: center;
+     vertical-align: middle;
+   }
+.body{
+     margin: 50px;
+}
+
+.code{
+     width: 100px;
+}
+.title{
+     width: 400px;
+}
+.credit{
+     width: 75px;
+}
+.point{
+     width: 75px;
+     max-width: 75px;
+}
+
+.grade{
+     width: 75px;
+}
+
+.action{
+     width: 75px;
+}
+
+.summary{
+     padding: 10px;
+     margin-top: 10px;
+     margin-bottom: 15px;
+     border: solid;
+     border-width: 1px;
+}
+
+.persem{
+     padding: auto;
+     border: solid;
+     border-width: 1px;
+     padding: 10px;
+}
+
+.tab-bng{
+     margin-top: 20px;
+}
+
+.operation{
+     height: 55px;
+     width: 100%;
+}
+
+.top{
+     width: 50%;
+}
+
+@media print {
+     button {
+       display: none;
+     }
+     .action{
+          display: none;
+     }
+     .top{
+          display: none;
+     }
+     .body{
+          visibility: hidden;
+     }
+     .result{
+          visibility: visible;
+     }
+}
+
+label{
+     width: 200px;
+}
+
+.result{
+     margin-top: 50px;
+}

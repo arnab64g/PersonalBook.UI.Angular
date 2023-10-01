@@ -1,0 +1,59 @@
+<div class="main">
+    <div class="row filter">
+        <div class="row filter">
+            <ng-select  appearance="outline" placeholder="Filter by category" [multiple]="true" (change)="categoryFilter($event)">
+                <ng-option  *ngFor="let c of categories" [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+            </ng-select>
+        </div>
+        <div class="row filter">
+            <mat-form-field appearance="outline" class="col">
+                <mat-label>Sort By</mat-label>
+                <mat-select [value]="sortBy" (valueChange)="sortByChange($event)">
+                    <mat-option *ngFor="let c of expenseSort" [value]="c.id"> {{c.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col filter" appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input placeholder="MM/DD/YY" matInput [matDatepicker]="fromDate" (dateChange)="fromDateChange($event)">
+                <mat-datepicker-toggle matIconSuffix [for]="fromDate" ></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col filter" appearance="outline" >
+                <mat-label>To Date</mat-label>
+                <input placeholder="MM/DD/YY" matInput [matDatepicker]="toDate" (dateChange)="toDateChange($event)">
+                <mat-datepicker-toggle matIconSuffix [for]="toDate" ></mat-datepicker-toggle>
+                <mat-datepicker #toDate ></mat-datepicker>
+            </mat-form-field>
+            <div class="col filter">
+                <button style="width: 100%;"  mat-raised-button color="primary" class="add" (click)="addExpense()"><mat-icon>add</mat-icon> Add Expense </button>
+            </div>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <th></th>
+                    <th> Category </th>
+                    <th> Date </th>
+                    <th> Amount </th>
+                    <th> Description</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of expenseSlice">
+                        <td> <mat-icon color="accent">{{categories[e.category].icon}}</mat-icon> </td>
+                        <td>  {{categories[ e.category ].name}} </td>
+                        <td> {{e.date.toDateString()}} </td>
+                        <td> {{e.amount}} </td>
+                        <td> {{e.description}} </td>
+                        <td>
+                            <button mat-icon-button (click)="edit(e.id)"> <mat-icon color="primary">edit</mat-icon></button>
+                            <button mat-icon-button (click)="delete(e.id)"> <mat-icon color="warn">delete</mat-icon> </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50]" (page)="onPageChange($event)"></mat-paginator>
+        </div>
+        
+    </div>
+</div>

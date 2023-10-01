@@ -1,0 +1,41 @@
+<div class="row" style="max-width: 80%; ">
+    <div class="col data">
+        <div class="row">
+            <mat-form-field class="col " appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input placeholder="MM/DD/YY" matInput [matDatepicker]="fromDate" (dateChange)="fromDateChange($event)">
+                <mat-datepicker-toggle matIconSuffix [for]="fromDate" ></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col" appearance="outline" >
+                <mat-label>To Date</mat-label>
+                <input placeholder="MM/DD/YY" matInput [matDatepicker]="toDate" (dateChange)="toDateChange($event)">
+                <mat-datepicker-toggle matIconSuffix [for]="toDate" ></mat-datepicker-toggle>
+                <mat-datepicker #toDate ></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <table>
+            <thead>
+                <td></td>
+                <th>Category</th>
+                <th> Total </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of list">
+                    <td> <mat-icon color="accent">{{categories[i.category].icon}}</mat-icon>  </td>
+                    <td>{{categories[i.category].name}}</td>
+                    <td>{{i.total}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><b>Total Cost</b></td>
+                    <td><b>{{sum}}</b> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col chart">
+        <canvas baseChart [type]="type" [datasets]="pieChartDatasets" [labels]="pieChartLabels"></canvas>
+        <button mat-raised-button (click)="typeChange()" color="primary"> View Change </button>
+    </div>
+</div>

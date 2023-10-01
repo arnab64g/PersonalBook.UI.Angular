@@ -1,0 +1,38 @@
+<div class="justify-content-center  body">
+     <div class="row c-c">
+          <div class="col">
+               <mat-form-field appearance="outline" class="filter">
+                    <mat-select [value]="orderChoice" (valueChange)="orderByChange($event)">
+                         <mat-option *ngFor="let s of courseSort" [value]="s.id" > {{s.name}}</mat-option>
+                    </mat-select>
+               </mat-form-field>
+               
+          </div>
+          <div class="col">
+               <button class="add-btn" mat-raised-button color="primary" (click)="addCourse()" ><mat-icon>add</mat-icon> Add Course</button>
+          </div>
+     </div>
+     
+     <div >
+          <table>
+               <thead>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Credit Hour</th>
+                    <th></th>
+               </thead>
+               <tbody>
+                    <tr *ngFor="let c of coursesT">
+                         <td>{{c.courseCode}}</td>
+                         <td> {{c.courseTitle}} </td>
+                         <td> {{c.creditPoint}} </td>
+                         <td>
+                              <button mat-icon-button (click)="edit(c.id)"> <mat-icon color="primary">edit</mat-icon> </button>
+                              <button mat-icon-button (click)="delete(c.id)"> <mat-icon color="warn">delete</mat-icon> </button>
+                         </td>
+                    </tr>
+               </tbody>
+          </table>
+          <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50]" (page)="onPageChange($event)"></mat-paginator>
+     </div>
+</div>

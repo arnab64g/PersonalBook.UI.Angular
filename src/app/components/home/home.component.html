@@ -1,0 +1,43 @@
+<div>
+    <div class="row mb-3" *ngIf="isActive">
+        <mat-card  class="col g-3"  matRipple (click)="toFinance()">
+            <mat-card-content>
+                <mat-icon color="primary" >attach_money</mat-icon> 
+                <br>
+                <mat-label>Expense</mat-label> 
+            </mat-card-content>
+        </mat-card>
+        <mat-card  class="col g-3" matRipple (click)="toEducation()">
+            <mat-card-content >
+                <mat-icon color="primary">school</mat-icon> 
+                <br>
+                <mat-label>Education</mat-label> 
+            </mat-card-content>
+        </mat-card>
+        <mat-card  class="col g-3" matRipple (click)=" logOut()">
+            <mat-card-content>
+                <mat-icon color="warn">logout</mat-icon> 
+                <br>
+                <mat-label>Log out</mat-label> 
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="row" *ngIf="!isActive">
+        <mat-card  class="col g-3" matRipple routerLink="login">
+            <mat-card-content>
+                <mat-icon color="primary">login</mat-icon> 
+                <br>
+                <mat-label>Log in</mat-label> 
+            </mat-card-content>
+        </mat-card>
+        <mat-card  class="col g-3" matRipple routerLink="signup">
+            <mat-card-content >
+                <mat-icon color="primary">account_circle</mat-icon> 
+                <br>
+                <mat-label>Sign Up</mat-label> 
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+

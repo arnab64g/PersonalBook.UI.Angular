@@ -1,0 +1,39 @@
+<mat-dialog-content>
+     <h1 color="primary">Grade</h1>
+     <form [formGroup]="gradeForm" (ngSubmit)="addEditGrade()" class="form-floating mb-3">
+          <div class="row">
+               <mat-form-field class="col" appearance="outline">
+                    <input matInput formControlName="grade" >
+                    <mat-label>Grade</mat-label>
+               </mat-form-field>
+               <mat-form-field class="col" appearance="outline">
+                    <input matInput type="number" formControlName="points" >
+                    <mat-label >Point</mat-label>
+               </mat-form-field>
+          </div>
+          <div class="row">
+               <mat-form-field class="col" appearance="outline">
+                    <input matInput type="number" formControlName="minNumber" >
+                    <mat-label>Minimum Number</mat-label>
+               </mat-form-field>
+               <mat-form-field class="col" appearance="outline">
+                    <input matInput type="number" formControlName="maxNumber" >
+                    <mat-label>Maximum Number</mat-label>
+               </mat-form-field>
+               <mat-form-field appearance="outline" class="col">
+                    <mat-select formControlName="scale">
+                         <mat-option *ngFor="let s of scale" [value]="s.id"> {{s.name}} </mat-option>
+                    </mat-select>
+               </mat-form-field>
+          </div>
+          
+          <div class="row">
+               <div class="col">
+                    <button mat-raised-button color="secondary" type="button" (click)="cancelAdd()"> <mat-icon>cancel</mat-icon> Cancel</button>
+               </div>
+               <div class="col">
+                    <button mat-raised-button color="primary" type="submit"> <mat-icon>save</mat-icon> Save </button>
+               </div>
+          </div>
+     </form>
+</mat-dialog-content>

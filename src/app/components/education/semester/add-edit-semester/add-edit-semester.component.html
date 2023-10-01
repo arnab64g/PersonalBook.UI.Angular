@@ -1,0 +1,33 @@
+<mat-dialog-content>
+     <h1> Semester </h1>
+     <form [formGroup]="semesterForm" (ngSubmit)="addEditSemester()">
+          <div class="row">
+               <mat-form-field appearance="outline">
+                    <input matInput formControlName="name">
+                    <mat-label class="form-label">Semester Name</mat-label>
+               </mat-form-field>
+          </div>
+          <div class="row">
+               <mat-form-field appearance="outline" class="col"> 
+                    <mat-select   formControlName="month">
+                         <mat-option *ngFor="let m of month" [value]="m.id"> {{m.name}} </mat-option>
+                    </mat-select>
+                    <mat-label> Month </mat-label>
+               </mat-form-field>
+               <mat-form-field appearance="outline" class="col">
+                    <input matInput type="number" formControlName="year">
+                    <mat-label> Year </mat-label>
+               </mat-form-field>
+          </div>
+          
+          <div class="row">
+               <div class="col">
+                    <button mat-raised-button type="button" color="secondary" (click)="close()"> <mat-icon>cancel</mat-icon> Cancel </button>
+               </div>
+               <div class="col">
+                    <button mat-raised-button type="submit" color="primary"> <mat-icon>save</mat-icon> Save </button>
+               </div>
+          </div>
+     </form>
+</mat-dialog-content>
+
