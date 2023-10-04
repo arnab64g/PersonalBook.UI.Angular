@@ -51,7 +51,7 @@ export class CategoryComponent implements OnInit {
   }
 
   fromDateChange(event : any){
-    event.value.setDate(event.value.getDate() + 1);
+    event.value.setDate(event.value.getDate());
     this.fromDate = event.value;
     console.log(this.filter.fromDate);
     
@@ -60,7 +60,7 @@ export class CategoryComponent implements OnInit {
   }
 
   toDateChange(event : any){
-    event.value.setDate(event.value.getDate() + 1);
+    event.value.setDate(event.value.getDate());
     this.toDate = event.value;
     this.ngOnInit();
   }

@@ -34,7 +34,7 @@ export class AddEditExpenseComponent implements OnInit {
     this.expense.date = this.expenseForm.get('date')?.value;
     this.expense.amount = this.expenseForm.get('amount')?.value;
     this.expense.description = this.expenseForm.get('description')?.value;
-    this.expense.date.setDate(this.expense.date.getDate() + 1);
+    this.expense.date.setDate(this.expense.date.getDate());
     if (this.expenseForm.valid) {
       if (this.expense.id == 0) {
         this.expenseService.post(this.expense).subscribe({
@@ -50,8 +50,6 @@ export class AddEditExpenseComponent implements OnInit {
         })
       }
       else {
-        console.log(this.expense);
-        
         this.expenseService.put(this.expense).subscribe({
           next : (value) =>{
             if (value) {

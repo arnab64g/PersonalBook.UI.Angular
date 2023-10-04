@@ -59,7 +59,6 @@ export class AddEditSecondaryResultComponent implements OnInit {
     if (this.result.id == 0) {
       this.secondaryService.addResult(this.result).subscribe({
         next : (res) => {
-          console.log(res);
           if (res) {
             if (res) {
               this.toaster.success('Result added successfully', 'Successed');

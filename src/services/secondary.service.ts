@@ -14,7 +14,7 @@ export class SecondaryService {
 
   addResult(result : SecondaryResult) : Observable<number>{
     const url = this.baseUrl + 'SecondaryResult';
-
+	
     return this.httpClient.post<number>(url, result);
   }
 
