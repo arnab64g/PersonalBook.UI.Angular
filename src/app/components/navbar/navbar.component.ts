@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthGuard } from 'src/app/gaurds/auth.guard';
 import { TokenDecoded } from 'src/app/models/Result';
 import { UserService } from 'src/services/user.service';
-import { faSchool } from '@fortawesome/free-solid-svg-icons';
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +14,6 @@ export class NavbarComponent implements OnInit {
   isLoggedIn!: boolean;
   fullName !: string;
   isAdmin!: boolean;
-  school = faSchool;
-  finance = faMoneyBill;
   
   constructor(private authGaurd : AuthGuard, private userService : UserService, private router : Router ){}
   
