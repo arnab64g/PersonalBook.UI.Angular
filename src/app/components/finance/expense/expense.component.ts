@@ -33,7 +33,6 @@ export class ExpenseComponent implements OnInit {
   constructor(private matDialod : MatDialog, private userService : UserService, private expenseService : ExpenseService) {  }
   
   ngOnInit(): void {
-   
     this.expenseService.get(this.userService.getUserId()).subscribe({
       next : (value) => {
         value.forEach(element => {

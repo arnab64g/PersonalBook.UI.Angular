@@ -12,8 +12,11 @@ table{
      width: 100%;
 }
 
-
 th{
      height: 48px;
      background-color: rgb(233, 236, 241);
+}
+
+.dec{
+	margin-top: 20px;
 }

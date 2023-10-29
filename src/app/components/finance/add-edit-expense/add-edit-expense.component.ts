@@ -11,6 +11,7 @@ import { ExpenseService } from 'src/services/expense.service';
   templateUrl: './add-edit-expense.component.html',
   styleUrls: ['./add-edit-expense.component.css']
 })
+
 export class AddEditExpenseComponent implements OnInit {
   categories = Category;
   expenseForm !: FormGroup;
@@ -35,6 +36,7 @@ export class AddEditExpenseComponent implements OnInit {
     this.expense.amount = this.expenseForm.get('amount')?.value;
     this.expense.description = this.expenseForm.get('description')?.value;
     this.expense.date.setDate(this.expense.date.getDate());
+	
     if (this.expenseForm.valid) {
       if (this.expense.id == 0) {
         this.expenseService.post(this.expense).subscribe({
@@ -61,13 +63,13 @@ export class AddEditExpenseComponent implements OnInit {
             }
           }
         });
-        
       }
     }
     else{
       console.log(this.expenseForm.hasError);
     }
   }
+  
   close(){
     this.dialogRef.close(false);
   }
