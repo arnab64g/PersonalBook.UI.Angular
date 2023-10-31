@@ -1,0 +1,17 @@
+.profile{
+    width: 100%;
+    padding: 20px;
+    justify-items: center;
+}
+
+h2{
+    justify-content: center;
+}
+
+td{
+    padding: 5px;
+    min-width: 150px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+}

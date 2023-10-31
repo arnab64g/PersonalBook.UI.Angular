@@ -1,10 +1,31 @@
-<div>
-     <h4>{{user.firstName}} {{user.lastName}}</h4>
-     <p>Email: {{user.email}}</p>
-     <p>Username: {{user.username}}</p>
-     <p>Contact: {{user.phoneNumber}}</p>
-     <p>Role: {{user.role}} </p>
-     <p> Address: {{user.address}}</p>
-     <p> Created: {{user.created}} </p>
+<div class="profile">
+     <h2>{{user.firstName}} {{user.lastName}}</h2>
+     <table>
+          <tr>
+               <td><b> Email: </b></td>
+               <td> <i> {{user.email}} </i> </td>
+          </tr>
+          <tr>
+               <td> <b> Username: </b> </td>
+               <td> <i> {{user.username}} </i> </td>
+          </tr>
+          <tr>
+               <td><b> Contact: </b></td>
+               <td> {{user.phoneNumber}} </td>
+          </tr>
+          <tr>
+               <td> <b>Role: </b></td>
+               <td> {{user.role}} </td>
+          </tr>
+          <tr>
+               <td> <b>Address:</b></td>
+               <td> {{user.address}} </td>
+          </tr>
+          <tr>
+               <td> <b> Created:</b>  </td>
+               <td> {{user.created}} </td>
+          </tr>
+     </table>
 
+     <p>   </p>
 </div>

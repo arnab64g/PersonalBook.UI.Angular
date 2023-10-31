@@ -6,6 +6,7 @@ import { AddEditGradeComponent } from '../add-edit-grade/add-edit-grade.componen
 import { DeleteGradePopupComponent } from '../delete-grade-popup/delete-grade-popup.component';
 import { UserService } from 'src/services/user.service';
 import { sortGrade } from 'src/app/extralib/sort';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-grade-list',
@@ -19,7 +20,7 @@ export class GradeListComponent implements OnInit {
   isAdmin !: boolean;
   val = 4;
   
-  constructor( private gradeService : GradeService, private matDialog: MatDialog, private userService : UserService) {}
+  constructor(private gradeService : GradeService, private matDialog: MatDialog, private userService : UserService) {}
 
   ngOnInit() : void {
     let user = this.userService.gerRole();
