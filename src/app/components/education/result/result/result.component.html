@@ -4,7 +4,9 @@
                <mat-form-field appearance="outline"  class="operation">
                     <mat-select  placeholder="Select Semester" (valueChange)="getRes($event)">
                          <mat-option [value]="0"> All </mat-option>
-                         <mat-option *ngFor="let r of result" [value]="r.semId"> {{r.semesterName}} {{r.year}}</mat-option>
+                         @for (r of result; track $index) {
+                              <mat-option [value]="r.semId"> {{r.semesterName}} {{r.year}}</mat-option>
+                         }
                     </mat-select>
                </mat-form-field>
           </div>
@@ -35,17 +37,19 @@
           <div class="tab-bng" *ngFor="let r of view">
                <b> {{r.semesterName}} ({{r.year}}) </b>
                <table class="table">
-                    <tr *ngFor="let item of r.resultList">
-                         <td class="code">{{item.courseCode}}</td>
-                         <td class="title"> {{item.courseTitle}} </td>
-                         <td class="credit"> {{item.creditPoint}} </td>
-                         <td class="grade"> {{item.gradeName}} </td>
-                         <td class="point"> {{item.points}} </td>
-                         <td class="action">
-                              <button mat-icon-button (click)="edit(item.id)"> <mat-icon color="primary">edit</mat-icon> </button>
-                              <button mat-icon-button (click)="delete(item.id)"> <mat-icon color="warn">delete</mat-icon> </button>
-                         </td>
-                    </tr>
+                    @for (item of r.resultList; track $index) {
+                         <tr>
+                              <td class="code">{{item.courseCode}}</td>
+                              <td class="title"> {{item.courseTitle}} </td>
+                              <td class="credit"> {{item.creditPoint}} </td>
+                              <td class="grade"> {{item.gradeName}} </td>
+                              <td class="point"> {{item.points}} </td>
+                              <td class="action">
+                                   <button mat-icon-button (click)="edit(item.id)"> <mat-icon color="primary">edit</mat-icon> </button>
+                                   <button mat-icon-button (click)="delete(item.id)"> <mat-icon color="warn">delete</mat-icon> </button>
+                              </td>
+                         </tr>
+                    }
                </table>
                <div class="persem">
                     <h3>Credits Earned : <b>{{r.semesterTotalCredit}}</b> </h3>

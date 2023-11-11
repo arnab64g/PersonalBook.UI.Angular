@@ -3,7 +3,9 @@
     <form [formGroup]="expenseForm" (ngSubmit)="addEditExpense()">
         <div>
             <ng-select appearance="outline" placeholder="Category" [multiple]="false" formControlName="category" >
-                <ng-option *ngFor="let c of categories" [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+                @for (c of categories; track $index) {
+                    <ng-option [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+                }
             </ng-select>
         </div>
         <div class="row">

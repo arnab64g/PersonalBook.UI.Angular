@@ -2,17 +2,23 @@
     <div>
         <button class="title" mat-button routerLink=""> <mat-icon style="font-size: 20px;" color="warn">person</mat-icon> Personal Book A </button>
     </div>
-    <div *ngIf="isLoggedIn" >
-        <button mat-button routerLink="finance"> <mat-icon color="accent"> attach_money</mat-icon> Finance </button>
-        <button mat-button routerLink="education"> <mat-icon color="accent">school</mat-icon> Education</button>
-    </div>
+    @if (isLoggedIn) {
+        <div *ngIf="isLoggedIn" >
+            <button mat-button routerLink="finance"> <mat-icon color="accent"> attach_money</mat-icon> Finance </button>
+            <button mat-button routerLink="education"> <mat-icon color="accent">school</mat-icon> Education</button>
+        </div>
+    }
     <div class="spacer"></div>
-    <div *ngIf="isLoggedIn" class="user-item">
-        <button  mat-button  (click)="logOut()"> <mat-icon color="accent">logout</mat-icon> Log Out </button>
-        <button  mat-button class="profile-btn" routerLink="profile" color="accent"> {{fullName}} </button>
-    </div>
-    <div *ngIf="!isLoggedIn" class="user-item">
-        <button  mat-button routerLink="login"> <mat-icon color="accent">login</mat-icon> Login</button>
-        <button  mat-button routerLink="signup"> <mat-icon color="accent">account_circle</mat-icon> SignUp</button>
-    </div>
+    @if (isLoggedIn) {
+        <div class="user-item">
+            <button  mat-button  (click)="logOut()"> <mat-icon color="accent">logout</mat-icon> Log Out </button>
+            <button  mat-button class="profile-btn" routerLink="profile" color="accent"> {{fullName}} </button>
+        </div>
+    }
+    @else {
+        <div class="user-item">
+            <button  mat-button routerLink="login"> <mat-icon color="accent">login</mat-icon> Login</button>
+            <button  mat-button routerLink="signup"> <mat-icon color="accent">account_circle</mat-icon> SignUp</button>
+        </div>
+    }
 </mat-toolbar>

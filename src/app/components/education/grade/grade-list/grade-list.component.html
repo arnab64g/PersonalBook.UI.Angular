@@ -7,11 +7,13 @@
                          <mat-option [value]="5">GPA Scale 5.0</mat-option>
                     </mat-select>
                </mat-form-field>
-               <button *ngIf="isAdmin" mat-raised-button color="primary" class="col top-act" (click)="addGrade()"> <mat-icon>add</mat-icon> Add Grade </button>
+               @if (isAdmin) {
+                    <button mat-raised-button color="primary" class="col top-act" (click)="addGrade()"> <mat-icon>add</mat-icon> Add Grade </button>
+               }
           </div>
           <br>
-          <div  class=" g-3 row">
-               <table >
+          <div class="g-3 row">
+               <table>
                     <thead >
                          <tr>
                               <th mat-header-cell> Grade </th>
@@ -21,15 +23,19 @@
                          </tr>
                     </thead>
                     <tbody>
-                         <tr *ngFor="let grade of grades">
-                              <td> {{grade.gradeName}} </td>
-                              <td> {{grade.points}} </td>
-                              <td> {{grade.minNumber}} - {{grade.maxNumber}} </td>
-                              <td *ngIf="isAdmin">
-                                   <button  mat-icon-button (click)="editGrade(grade.id)" > <mat-icon color="primary">edit</mat-icon> </button>
-                                   <button mat-icon-button (click)="deleteGrade(grade.id)" > <mat-icon color="warn" > delete </mat-icon> </button>
-                              </td>
-                         </tr>
+                         @for (grade of grades; track $index) {
+                              <tr>
+                                   <td> {{grade.gradeName}} </td>
+                                   <td> {{grade.points}} </td>
+                                   <td> {{grade.minNumber}} - {{grade.maxNumber}} </td>
+                                   @if (isAdmin) {
+                                        <td>
+                                             <button mat-icon-button (click)="editGrade(grade.id)"><mat-icon color="primary"> edit </mat-icon></button>
+                                             <button mat-icon-button (click)="deleteGrade(grade.id)" ><mat-icon color="warn"> delete </mat-icon></button>
+                                        </td>
+                                   }
+                              </tr>
+                         }
                     </tbody>
                </table>
           </div>

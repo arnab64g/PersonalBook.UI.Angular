@@ -14,7 +14,9 @@
           <div class="row">
                <mat-form-field appearance="outline" class="col">
                     <mat-select placeholder="Grade" formControlName="grade">
-                         <mat-option *ngFor="let g of grades" [value]="g.id"> {{g.gradeName}}</mat-option>
+                         @for (g of grades; track $index) {
+                              <mat-option [value]="g.id"> {{g.gradeName}}</mat-option>
+                         }
                     </mat-select>
                </mat-form-field>
                <mat-checkbox formControlName="isOptional" class="col">Optional</mat-checkbox>

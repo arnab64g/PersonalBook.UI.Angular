@@ -13,15 +13,18 @@
                          <th></th>
                     </thead>
                     <tbody>
-                         <tr *ngFor="let sem of semesters">
-                              <td>{{sem.semesterName}}</td>
-                              <td> {{month[sem.monthBng - 1].name}} </td>
-                              <td> {{sem.year}} </td>
-                              <td>
-                                   <button mat-icon-button (click)="editSemester(sem.id)" > <mat-icon color="primary">edit</mat-icon> </button>
-                                   <button mat-icon-button (click)="deleteSemester(sem.id)" > <mat-icon color="warn"> delete </mat-icon> </button>
-                              </td>
-                         </tr>
+                         @for (sem of semesters; track $index) {
+                              <tr>
+                                   <td>{{sem.semesterName}}</td>
+                                   <td> {{month[sem.monthBng - 1].name}} </td>
+                                   <td> {{sem.year}} </td>
+                                   <td>
+                                        <button mat-icon-button (click)="editSemester(sem.id)" > <mat-icon color="primary">edit</mat-icon> </button>
+                                        <button mat-icon-button (click)="deleteSemester(sem.id)" > <mat-icon color="warn"> delete </mat-icon> </button>
+                                   </td>
+                              </tr>
+                         }
+                         
                     </tbody>
                </table>
           </div>

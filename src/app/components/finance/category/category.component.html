@@ -21,11 +21,13 @@
                 <th> Total </th>
             </thead>
             <tbody>
-                <tr *ngFor="let i of list">
-                    <td> <mat-icon color="accent">{{categories[i.category].icon}}</mat-icon>  </td>
-                    <td>{{categories[i.category].name}}</td>
-                    <td>{{i.total}}</td>
-                </tr>
+                @for (i of list; track $index) {
+                    <tr>
+                        <td> <mat-icon color="accent">{{categories[i.category].icon}}</mat-icon>  </td>
+                        <td>{{categories[i.category].name}}</td>
+                        <td>{{i.total}}</td>
+                    </tr>
+                }
                 <tr>
                     <td></td>
                     <td><b>Total Cost</b></td>

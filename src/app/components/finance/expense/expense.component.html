@@ -2,14 +2,18 @@
     <div class="row filter">
         <div class="row filter">
             <ng-select  appearance="outline" placeholder="Filter by category" [multiple]="true" (change)="categoryFilter($event)">
-                <ng-option  *ngFor="let c of categories" [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+                @for (c of categories; track $index) {
+                    <ng-option [value]="c.id" [disabled]="isDisabled(c.id)"><mat-icon>{{c.icon}}</mat-icon> {{c.name}} </ng-option>
+                }
             </ng-select>
         </div>
         <div class="row filter">
             <mat-form-field appearance="outline" class="col">
                 <mat-label>Sort By</mat-label>
                 <mat-select [value]="sortBy" (valueChange)="sortByChange($event)">
-                    <mat-option *ngFor="let c of expenseSort" [value]="c.id"> {{c.name}}</mat-option>
+                    @for (c of expenseSort; track $index) {
+                        <mat-option [value]="c.id"> {{c.name}}</mat-option>
+                    }
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="col filter" appearance="outline">
@@ -39,17 +43,19 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let e of expenseSlice">
-                        <td> <mat-icon color="accent">{{categories[e.category].icon}}</mat-icon> </td>
-                        <td>  {{categories[ e.category ].name}} </td>
-                        <td> {{e.date.toDateString()}} </td>
-                        <td> {{e.amount}} </td>
-                        <td> {{e.description}} </td>
-                        <td>
-                            <button mat-icon-button (click)="edit(e.id)"> <mat-icon color="primary">edit</mat-icon></button>
-                            <button mat-icon-button (click)="delete(e.id)"> <mat-icon color="warn">delete</mat-icon> </button>
-                        </td>
-                    </tr>
+                    @for (e of expenseSlice; track $index) {
+                        <tr>
+                            <td> <mat-icon color="accent">{{categories[e.category].icon}}</mat-icon> </td>
+                            <td>  {{categories[ e.category ].name}} </td>
+                            <td> {{e.date.toDateString()}} </td>
+                            <td> {{e.amount}} </td>
+                            <td> {{e.description}} </td>
+                            <td>
+                                <button mat-icon-button (click)="edit(e.id)"> <mat-icon color="primary">edit</mat-icon></button>
+                                <button mat-icon-button (click)="delete(e.id)"> <mat-icon color="warn">delete</mat-icon> </button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
             <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50]" (page)="onPageChange($event)"></mat-paginator>

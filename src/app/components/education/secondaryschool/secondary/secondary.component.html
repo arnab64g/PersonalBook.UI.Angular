@@ -19,18 +19,28 @@
                     <th> Points </th>
                </thead>
                <tbody>
-                    <tr *ngFor="let r of resutlsT">
-                         <td> {{r.sl}} </td>
-                         <td *ngIf="r.isOptional">{{r.subject}} (Optional) </td>
-                         <td *ngIf="!r.isOptional">{{r.subject}} </td>
-                         <td> {{r.gradeName}} </td>
-                         <td  *ngIf="!r.isOptional"> {{r.points}} </td>
-                         <td  *ngIf="r.isOptional"> {{r.points}} ({{r.points - 2}}) </td>
-                         <td>
-                              <button mat-icon-button (click)="edit(r.id)"><mat-icon color="primary">edit</mat-icon></button>
-                              <button mat-icon-button (click)="delete(r.id)"><mat-icon color="warn">delete</mat-icon> </button>
-                         </td>
-                    </tr>
+                    @for (r of resutlsT; track $index) {
+                         <tr>
+                              <td> {{r.sl}} </td>
+                              @if (r.isOptional){
+                                   <td>{{r.subject}} (Optional) </td>
+                              }
+                              @else {
+                                   <td>{{r.subject}} </td>
+                              }
+                              <td> {{r.gradeName}} </td>
+                              @if (r.isOptional) {
+                                   <td> {{r.points}} ({{r.points - 2}}) </td>     
+                              }
+                              @else{
+                                   <td> {{r.points}} </td>
+                              }
+                              <td>
+                                   <button mat-icon-button (click)="edit(r.id)"><mat-icon color="primary">edit</mat-icon></button>
+                                   <button mat-icon-button (click)="delete(r.id)"><mat-icon color="warn">delete</mat-icon> </button>
+                              </td>
+                         </tr>
+                    }
                </tbody>
           </table>
      </div>
