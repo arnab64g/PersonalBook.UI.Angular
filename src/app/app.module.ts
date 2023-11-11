@@ -35,7 +35,6 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from './components/home/home.component';
 import { EducationComponent } from './components/education/education/education.component';
 import { ExpenseComponent } from './components/finance/expense/expense.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SecondaryComponent } from './components/education/secondaryschool/secondary/secondary.component';
 import { AddEditSecondaryResultComponent } from './components/education/secondaryschool/add-edit-secondary-result/add-edit-secondary-result.component'
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -102,7 +101,6 @@ import { NgxPrintModule } from 'ngx-print';
     MatInputModule,
     MatSelectModule,
     MatPaginatorModule,
-    FontAwesomeModule,
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
