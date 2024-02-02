@@ -32,10 +32,10 @@ export class ResultComponent implements OnInit {
       next: (res) => {
         this.list = res.results;
         const summary = res.summary;
-        
+        console.log(res);
         summary.forEach(element => {
           const sem = res.results.filter(x => x.semesterId == element.semId)[0]
-          const resultView:SemesterWiseTableView =   {
+          const resultView:SemesterWiseTableView = {
             semId : sem.id,
             semesterName : sem.semesterName,
             year : sem.year,
@@ -53,6 +53,9 @@ export class ResultComponent implements OnInit {
         if (res.totalCredit > 0) {
           this.finalResult.cgpa = Number((Math.round((res.totalPoints/res.totalCredit)* 100) / 100).toFixed(2));
         }
+		else{
+			this.finalResult.cgpa = 0;
+		}
       }
     });
 
