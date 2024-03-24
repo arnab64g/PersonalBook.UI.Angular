@@ -46,7 +46,7 @@
                     @for (e of expenseSlice; track $index) {
                         <tr>
                             <td> <mat-icon color="accent">{{categories[e.category].icon}}</mat-icon> </td>
-                            <td>  {{categories[ e.category ].name}} </td>
+                            <td> {{categories[ e.category ].name}} </td>
                             <td> {{e.date.toDateString()}} </td>
                             <td> {{e.amount}} </td>
                             <td> {{e.description}} </td>

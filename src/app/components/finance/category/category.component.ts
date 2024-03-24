@@ -38,7 +38,7 @@ export class CategoryComponent implements OnInit {
         this.list = value;
         this.sum = 0;
         value.forEach((item: { total: number; }) => {
-          this.sum += item.total;
+          this.sum += Number(item.total) ;
         });
         this.pieChartLabels = this.list.map(c => this.categories[c.category].name);
         this.pieChartDatasets[0].data=this.list.map(x => x.total);
