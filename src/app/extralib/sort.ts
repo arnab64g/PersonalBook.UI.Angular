@@ -37,8 +37,8 @@ export function sortCourses(courses: Course[]) : Course[] {
   })
 }
 
-export function sortSemesterWiseTable(tables:SemesterWiseTableView[]) {
-  return tables.sort((a, b)=>{
+export function sortSemesterWiseTable(semesters:SemesterWiseTableView[]) {
+  return semesters.sort((a, b)=>{
     if(a.year < b.year){
       return -1;
     }
@@ -128,8 +128,8 @@ export function orderByCourseCodeDesc(course:Course[]) : Course[] {
   });
 }
 
-export function orderByExoenseOtoN(course:Expense[]) : Expense[] {
-  return course.sort((a, b) => {
+export function orderByExoenseOtoN(expenses:Expense[]) : Expense[] {
+  return expenses.sort((a, b) => {
     if(a.date.getTime() < b.date.getTime()){
       return -1;
     }
@@ -139,8 +139,8 @@ export function orderByExoenseOtoN(course:Expense[]) : Expense[] {
   });
 }
 
-export function orderByExoenseNtoO(course:Expense[]) : Expense[] {
-  return course.sort((a, b) => {
+export function orderByExoenseNtoO(expenses:Expense[]) : Expense[] {
+  return expenses.sort((a, b) => {
     if(a.date.getTime() > b.date.getTime()){
       return -1;
     }
@@ -150,9 +150,9 @@ export function orderByExoenseNtoO(course:Expense[]) : Expense[] {
   });
 }
 
-export function orderByExoenseLtoH(course:Expense[]) : Expense[] {
-  return course.sort((a, b) => {
-    if(a.amount < b.amount){
+export function orderByExoenseLtoH(expenses:Expense[]) : Expense[] {
+  return expenses.sort((a, b) => {
+    if(Number(a.amount) < Number(b.amount) ){
       return -1;
     }
     else{
@@ -161,9 +161,9 @@ export function orderByExoenseLtoH(course:Expense[]) : Expense[] {
   });
 }
 
-export function orderByExoenseHtoL(course:Expense[]) : Expense[] {
-  return course.sort((a, b) => {
-    if(a.amount > b.amount){
+export function orderByExoenseHtoL(expenses:Expense[]) : Expense[] {
+  return expenses.sort((a, b) => {
+    if(Number(a.amount) > Number(b.amount)){
       return -1;
     }
     else{
@@ -172,8 +172,8 @@ export function orderByExoenseHtoL(course:Expense[]) : Expense[] {
   });
 }
 
-export function orderByExpenseCategory(course:Expense[]) : Expense[] {
-  return course.sort((a, b) => {
+export function orderByExpenseCategory(expenses:Expense[]) : Expense[] {
+  return expenses.sort((a, b) => {
     if(a.category < b.category){
       return -1;
     }
