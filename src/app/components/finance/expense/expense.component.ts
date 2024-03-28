@@ -80,7 +80,7 @@ export class ExpenseComponent implements OnInit {
   toDateChange(event : any){
     this.toDate = event.value;
     this.expenseFilterde = this.filterExpenses(this.expenses, this.fromDate, this.toDate, this.selected);
-    this.expenseSlice = this.expenseFilterde.slice(this. startIndex, this.endIndex);
+    this.expenseSlice = this.expenseFilterde.slice(this.startIndex, this.endIndex);
   }
 
   onPageChange(event : any){
@@ -91,7 +91,6 @@ export class ExpenseComponent implements OnInit {
   }
 
   filterExpenses(expenses: Expense[], fromDate : Date, toDate : Date, categories : number[]) : Expense[]{
-    
     let filtered = expenses;
     const cset = new Set(categories);
     

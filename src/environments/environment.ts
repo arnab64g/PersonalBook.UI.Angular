@@ -1,4 +1,4 @@
 export const environment = {
     production:false,
-    baseApiUrl : 'http://localhost:7108/api/'
+    baseApiUrl : 'https://personalbook-api-express-js.onrender.com/api/'
 };
